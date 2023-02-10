@@ -1,3 +1,20 @@
-
-
-<p>pricing works!</p>
+<section id="Pricing" class="pricing-container">
+    <div class="pricing-row row">
+        <div *ngFor="let package of packages" class="col-md-4">
+            <div class="pricing-column col-md-8" [ngStyle]="{'background-color':package.isActive?'#a8ff35':null}">
+                <div class="pricing-heading">
+                    <h1>{{package.name}}</h1>
+                    <p>{{package.description}}</p>
+                    <hr>
+                </div>
+                <div class="payment">
+                    <h3>{{package.price}}<span class="small">{{package.isMonthly?'/Month':'/Year'}}</span></h3>
+                    <ul *ngFor="let feature of package.featuresList">
+                        <li>{{feature}}</li>
+                    </ul>
+                </div>
+                <button class="btn-trail" [ngClass]="{'is-active-btn': package.isActive, 'is-not-active-btn': !package.isActive}">
+                    Start Free Trail
+                </button>
+            </div>
+        </div>

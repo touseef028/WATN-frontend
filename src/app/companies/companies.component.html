@@ -1,1 +1,8 @@
-<p>companies works!</p>
+<section id="Companies" class="container companies-container">
+    <h1>Findtrend make +1000 Startup grow</h1>
+    <div class="cards">
+        <div *ngFor="let company of companies" class="card">
+            <img src={{company.image}} alt={{company.name}}>
+        </div>
+    </div>
+</section>
